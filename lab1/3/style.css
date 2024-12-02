@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo-wrapper {
+    max-width: 120px;
+    height: auto;
+}
+
+.header .logo {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    border: 3px solid #0056b3;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+.footer .logo {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px;
+    border: 3px solid #0056b3;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.register-button {
+    padding: 15px 25px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-self: end;
+}
+
+.register-button:hover {
+    background-color: #0056b3;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: auto auto;
+    min-height: 500px;
+    background-color: #f4f4f4;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-text {
+    grid-column: 1;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-register-button {
+    width: 50%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+.hero-register-button:hover {
+    background-color: #0056b3;
+}
+
+.hero-image {
+    grid-column: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.feature {
+    padding: 20px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.features-register-button {
+    grid-column: span 3;
+    justify-self: center;
+    width: 25%;
+    margin: 20px 0 0;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.features-register-button:hover {
+    background-color: #0056b3;
+}
+
+.steps {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+}
+
+.steps h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.step-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 25px;
+    justify-items: center;
+}
+
+.step:nth-child(4),
+.step:nth-child(5) {
+    grid-column: span 1;
+    grid-row: 2;
+}
+
+.step {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.step h3 {
+    font-size: 36px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.steps-register-button {
+    margin: 20px auto 0;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.steps-register-button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+.footer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.footer-logo .logo {
+    max-width: 160px;
+    height: auto;
+}
+
+.footer-section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
