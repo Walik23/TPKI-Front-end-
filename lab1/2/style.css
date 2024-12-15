@@ -167,7 +167,6 @@ table {
     padding: 0;
 }
 
-/* Адаптивные стили */
 @media (max-width: 1024px) {
     .sidebar {
         width: 200px;
