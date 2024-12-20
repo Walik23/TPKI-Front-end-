@@ -1,0 +1,13 @@
+{
+    "name": "style-compiler",
+    "version": "1.0.0",
+    "main": "compile.js",
+    "scripts": {
+        "compile": "node compile.js"
+    },
+    "dependencies": {
+        "less": "^4.2.0",
+        "sass": "^1.75.0"
+    },
+    "devDependencies": {}
+}
