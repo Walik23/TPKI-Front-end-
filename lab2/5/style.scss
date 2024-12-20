@@ -1,0 +1,286 @@
+$primary-gradient-start: #6a11cb;
+$primary-gradient-end: #2575fc;
+$secondary-gradient-start: #ff7e5f;
+$secondary-gradient-end: #feb47b;
+$highlight-color: #ffdd59;
+$background-color: #f9f9f9;
+$text-color: #333;
+$text-secondary-color: #555;
+$box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+$hover-box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
+$border-radius: 10px;
+$transition-time: 0.3s;
+
+@mixin flex-center($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin box-style($shadow, $radius) {
+  box-shadow: $shadow;
+  border-radius: $radius;
+}
+
+@mixin gradient-bg($start-color, $end-color) {
+  background: linear-gradient(90deg, $start-color 0%, $end-color 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  background-color: $background-color;
+  color: $text-color;
+}
+
+.top-bar {
+  @include flex-center(center, center, center);
+  padding: 20px;
+  @include gradient-bg($primary-gradient-start, $primary-gradient-end);
+  color: white;
+}
+
+.brand-container {
+  @include flex-center(row, center, flex-start);
+  gap: 20px;
+}
+
+.brand-logo-image {
+  width: 130px;
+  height: 150px;
+  border: 3px solid #ffffff;
+  @include box-style($box-shadow, $border-radius);
+}
+
+.brand-text h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: $highlight-color;
+}
+
+.brand-text p {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.content-wrapper {
+  flex: 1;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.primary-section {
+  @include flex-center(row, center, center);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.blog-entry {
+  @include flex-center(row, center, flex-start);
+  gap: 20px;
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+  padding: 20px;
+  width: 500px;
+  @include box-style($box-shadow, 15px);
+  transition: transform $transition-time, box-shadow $transition-time;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $hover-box-shadow;
+  }
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  background-color: #e8e8e8;
+  @include box-style($border-radius, $border-radius);
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.entry-content {
+  .heading {
+    font-size: 1.8rem;
+    color: $text-color;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: $text-secondary-color;
+  }
+}
+
+.subscription-form {
+  @include flex-center(row, center, center);
+  gap: 10px;
+  margin-top: 20px;
+
+  .subscription-input {
+    padding: 10px;
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #fdfdfd;
+    transition: border-color $transition-time;
+  
+    &:focus {
+      border-color: $primary-gradient-end;
+      outline: none;
+    }
+  }
+  
+  .subscription-button {
+    padding: 10px 20px;
+    border: none;
+    @include gradient-bg($secondary-gradient-start, $secondary-gradient-end);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background $transition-time, transform $transition-time;
+  
+    &:hover {
+      @include gradient-bg($secondary-gradient-end, $secondary-gradient-start);
+      transform: scale(1.05);
+    }
+  }
+}
+
+.footer {
+  @include flex-center(row, center, space-around);
+  padding: 20px;
+  background-color: $text-color;
+  color: white;
+
+  .footer-list {
+    list-style: none;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        text-decoration: none;
+        color: $highlight-color;
+        font-weight: bold;
+        transition: color $transition-time;
+
+        &:hover {
+          color: $secondary-gradient-start;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .brand-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .primary-section {
+    flex-direction: column;
+  }
+
+  .blog-entry {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+  }
+
+  .entry-content {
+    text-align: center;
+  }
+
+  .subscription-form {
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+    .subscription-input {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .subscription-button {
+      width: 100%;
+      max-width: 150px;
+    }
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+
+    .footer-list {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+  }
+
+  .entry-content {
+    font-size: 14px;
+  }
+
+  .subscription-form{
+    .subscription-input {
+      font-size: 14px;
+      padding: 8px;
+    }
+  
+    .subscription-button {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+
+  .footer-list li {
+    font-size: 14px;
+  }
+}

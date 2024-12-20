@@ -1,0 +1,246 @@
+$primary-color: #007bff;
+$primary-hover-color: #0056b3;
+$text-color: #ffffff;
+$border-radius: 5px;
+$box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+$transition: 0.3s ease;
+
+@mixin button($bg-color, $hover-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color $transition;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+@mixin box-style($radius, $shadow) {
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+@mixin flex-center($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+
+  .logo-wrapper {
+    max-width: 120px;
+    height: auto;
+  }
+
+  .logo {
+    @include box-style(10px, $box-shadow);
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: $primary-color;
+    color: $text-color;
+    border: 3px solid $primary-hover-color;
+    text-transform: uppercase;
+    transition: transform $transition, box-shadow $transition;
+    white-space: nowrap;
+    max-width: 200px;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.register-button {
+  @include button($primary-color, $primary-hover-color);
+  padding: 15px 25px;
+  font-size: 16px;
+  justify-self: end;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: auto auto;
+  min-height: 500px;
+  background-color: #f4f4f4;
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+
+    .hero-text {
+      grid-column: 1;
+
+      h1 {
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      .hero-register-button {
+        @include button($primary-color, $primary-hover-color);
+        width: 50%;
+        padding: 15px;
+        font-size: 18px;
+        align-self: flex-start;
+      }
+    }
+
+    .hero-image {
+      grid-column: 2;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px 20px;
+  background-size: cover;
+  background-position: center;
+
+  .feature {
+    padding: 20px;
+    color: $text-color;
+    background-color: rgba(0, 0, 0, 0.5);
+    @include box-style($border-radius, none);
+    text-align: center;
+  }
+
+  .features-register-button {
+    @include button($primary-color, $primary-hover-color);
+    grid-column: span 3;
+    justify-self: center;
+    width: 25%;
+    margin: 20px 0 0;
+    padding: 10px 15px;
+    font-size: 16px;
+  }
+}
+
+.steps {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f4f4f4;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .step-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 25px;
+    justify-items: center;
+
+    .step:nth-child(4),
+    .step:nth-child(5) {
+      grid-column: span 1;
+      grid-row: 2;
+    }
+
+    .step {
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      text-align: center;
+      @include box-style($border-radius, none);
+
+      h3 {
+        font-size: 36px;
+        color: $primary-color;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .steps-register-button {
+    @include button($primary-color, $primary-hover-color);
+    margin: 20px auto 0;
+    padding: 15px;
+    font-size: 18px;
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: #333;
+  color: $text-color;
+
+  .footer-logo .logo {
+    max-width: 160px;
+    height: auto;
+  }
+
+  .footer-section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+
+    .footer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+  font-weight: bold;
+}
